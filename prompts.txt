@@ -1,1 +1,19 @@
-Genera un CSS moderno, empresarial y responsive en azul marino y oro para un simulador de banco
+PROMPTS UTILIZADOS PARA LA CREACIÓN Y VALIDACIÓN DEL SIMULADOR DE CRÉDITO
+
+1. Prompt para diseño responsivo y profesional (CSS):
+"Hola ChatGPT, ayúdame a mejorar los estilos de mi simulador de crédito en CSS. Quiero que se vea moderno, limpio y corporativo. Necesito que la tarjeta sea responsiva para celulares y que los campos de texto se resalten de color rojo si tienen algún error."
+
+2. Prompt para agregar etiquetas de error en la pantalla (HTML):
+"Hola, necesito agregar debajo de cada casilla de mi formulario en index.html un texto pequeño en donde la Inteligencia Artificial pueda mostrar los mensajes de error cuando el usuario no ingrese bien los datos."
+
+3. Prompt para validar las entradas al presionar el botón (JavaScript):
+"Hola, necesito que al dar clic en el botón 'Calcular Crédito' en simulador.js se verifiquen todos los campos antes de calcular:
+- Que ningún campo quede vacío.
+- Que ingresos y egresos sean números mayores o iguales a 0.
+- Que el monto del préstamo esté entre $100 y $50,000.
+- Que el plazo en años sea un número entero entre 1 y 10.
+- Que la tasa de interés esté entre 1% y 40%.
+Si hay errores, muestra un mensaje rojo debajo de la casilla correspondiente y no calcules nada hasta que se corrija."
+
+4. Prompt para el botón de reiniciar (JavaScript):
+"Ayúdame con una función en JavaScript para el botón de reiniciar que borre todos los textos ingresados, limpie las marcas rojas de error y reinicie todos los resultados a cero."

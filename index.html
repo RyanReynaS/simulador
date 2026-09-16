@@ -2,48 +2,82 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- Hace que la página sea responsiva y se adapte automáticamente a pantallas móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Crédito</title>
+        <!-- Enlace a los estilos CSS -->
     <link rel="stylesheet" href="simulador.css">
+        <!-- Importación de los archivos JavaScript -->
     <script src="funciones.js"></script>
-    <script src="simulador.js"></script>
     <script src="utilitarios.js"></script>
+    <script src="simulador.js"></script>
 </head>
 <body>
 
+    <!-- Tarjeta contenedora principal centrada -->
     <div class="container">
         <h1>Simulador de Crédito</h1>
 
         <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
 
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
+        <!-- Campo: Ingresos -->
+        <div class="input-group">
+            <label for="txtIngresos">Ingresos ($):</label>
+            <input type="text" id="txtIngresos" placeholder="Ej: 1200">
+            <!-- Etiqueta pequeña para mostrar el error específico de este campo -->
+            <small class="mensaje-error" id="errIngresos"></small>
+        </div>
 
-        <!-- IDs corregidos para coincidir con el script -->
-        <p>Disponible: <span id="lblDisponibleValor"></span></p>
-        <p>Capacidad de pago mensual: <span id="lblCapacidadValor"></span></p>
+        <!-- Campo: Egresos -->
+        <div class="input-group">
+            <label for="txtEgresos">Egresos ($):</label>
+            <input type="text" id="txtEgresos" placeholder="Ej: 400">
+            <!-- Etiqueta pequeña para el error de egresos -->
+            <small class="mensaje-error" id="errEgresos"></small>
+        </div>
+
+        <!-- Resultados intermedios -->
+        <p>Disponible: <span id="lblDisponibleValor">$0.00</span></p>
+        <p>Capacidad de pago mensual: <span id="lblCapacidadValor">$0.00</span></p>
 
         <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
 
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
+        <!-- Campo: Monto -->
+        <div class="input-group">
+            <label for="txtMonto">Monto a solicitar ($):</label>
+            <input type="text" id="txtMonto" placeholder="Ej: 5000">
+            <!-- Etiqueta pequeña para el error de monto -->
+            <small class="mensaje-error" id="errMonto"></small>
+        </div>
 
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
+        <!-- Campo: Plazo -->
+        <div class="input-group">
+            <label for="txtPlazo">Plazo (años):</label>
+            <input type="text" id="txtPlazo" placeholder="Ej: 3">
+            <!-- Etiqueta pequeña para el error de plazo -->
+            <small class="mensaje-error" id="errPlazo"></small>
+        </div>
 
-        <p>Interés a pagar: <span id="lblInteresValor"></span></p>
-        <p>Total préstamo: <span id="lblTotalValor"></span></p>
-        <p>Cuota mensual: <span id="lblCuotaValor"></span></p>
-        <p>Estado de crédito: <span id="lblEstadoCredito">ANALIZANDO...</span></p>
+        <!-- Campo: Tasa de Interés -->
+        <div class="input-group">
+            <label for="txtTasaInteres">Tasa de interés anual (%):</label>
+            <input type="text" id="txtTasaInteres" placeholder="Ej: 12">
+            <!-- Etiqueta pequeña para el error de tasa -->
+            <small class="mensaje-error" id="errTasaInteres"></small>
+        </div>
 
+        <!-- Resultados finales -->
+        <p>Interés a pagar: <span id="lblInteresValor">$0.00</span></p>
+        <p>Total préstamo: <span id="lblTotalValor">$0.00</span></p>
+        <p>Cuota mensual: <span id="lblCuotaValor">$0.00</span></p>
+        <p>Estado de crédito: <span id="lblEstadoCredito">POR EVALUAR</span></p>
+
+        <!-- Botones del formulario -->
         <div class="buttons">
-            <!-- Evento onclick agregado aquí -->
+            <!-- Al hacer clic ejecuta la función calcular() que valida y procesa -->
             <button type="button" id="btnCalcularCredito" onclick="calcular()">Calcular Crédito</button>
-            <button type="button" id="btnReiniciar">Reiniciar</button>
+            <!-- Al hacer clic ejecuta la función reiniciarFormulario() -->
+            <button type="button" id="btnReiniciar" onclick="reiniciarFormulario()">Reiniciar</button>
         </div>
     </div>
 

@@ -1,24 +1,30 @@
+/* ESTILOS GLOBALES */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #0f172a; /* Azul marino profundo de fondo */
+    background-color: #0f172a; /* Fondo azul marino corporativo */
     margin: 0;
-    padding: 20px 0;
+    padding: 20px 10px;
+    box-sizing: border-box;
 }
 
+/* CONTENEDOR PRINCIPAL TIPO TARJETA (RESPONSIVO) */
 .container {
-    width: 420px;
-    margin: 40px auto;
-    padding: 30px;
+    max-width: 450px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 25px;
     background-color: #ffffff;
     border-radius: 12px;
-    border-top: 6px solid #d97706; /* Detalle superior en Oro */
+    border-top: 6px solid #d97706; /* Borde superior en acento dorado */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
+/* TÍTULOS */
 h1 {
     text-align: center;
-    margin-bottom: 25px;
-    color: #0f172a; /* Azul marino */
+    margin-bottom: 20px;
+    color: #0f172a;
     font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -26,24 +32,28 @@ h1 {
 
 h2 {
     margin-top: 25px;
-    font-size: 16px;
+    font-size: 15px;
     color: #1e293b;
-    border-bottom: 2px solid #fef3c7; /* Línea divisoria oro suave */
+    border-bottom: 2px solid #fef3c7;
     padding-bottom: 5px;
+}
+
+/* ESTRUCTURA DE CADA CAMPO DE ENTRADA */
+.input-group {
+    margin-top: 12px;
 }
 
 label {
     display: block;
-    margin-top: 12px;
     font-weight: 600;
     color: #475569;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 input {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 4px;
     border-radius: 6px;
     border: 1px solid #cbd5e1;
     box-sizing: border-box;
@@ -51,44 +61,64 @@ input {
     transition: all 0.2s ease;
 }
 
+/* Enfoque normal del campo de texto */
 input:focus {
     outline: none;
-    border-color: #d97706; /* Borde oro al enfocar */
+    border-color: #d97706;
     box-shadow: 0 0 5px rgba(217, 119, 6, 0.3);
 }
 
+/* ESTILO DE ERROR PARA LOS INPUTS (Borde rojo y fondo rosado) */
+input.input-error {
+    border: 2px solid #dc2626 !important;
+    background-color: #fef2f2 !important;
+}
+
+/* ESTILO DEL TEXTO DE MENSAJE DE ERROR */
+.mensaje-error {
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 4px;
+    display: block;
+    min-height: 15px; /* Reserva espacio para evitar saltos en la interfaz */
+}
+
+/* FILAS DE RESULTADOS */
 p {
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 14px;
     color: #334155;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 span {
     font-weight: bold;
-    color: #0f172a; /* Azul marino para los resultados */
+    color: #0f172a;
     background-color: #f8fafc;
-    padding: 2px 8px;
+    padding: 4px 8px;
     border-radius: 4px;
 }
 
+/* BOTONES */
 .buttons {
     margin-top: 25px;
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 button {
-    width: 48%;
+    flex: 1;
     padding: 12px;
     border: none;
     border-radius: 6px;
-    background-color: #0f172a; /* Botón principal azul marino */
+    background-color: #0f172a;
     color: white;
     font-weight: bold;
     cursor: pointer;
-    border-bottom: 3px solid #d97706; /* Acento oro en el botón */
+    border-bottom: 3px solid #d97706;
     transition: background-color 0.2s;
 }
 
@@ -96,7 +126,6 @@ button:hover {
     background-color: #1e293b;
 }
 
-/* Estilo para el botón de reiniciar */
 #btnReiniciar {
     background-color: #94a3b8;
     border-bottom: 3px solid #64748b;
@@ -104,4 +133,20 @@ button:hover {
 
 #btnReiniciar:hover {
     background-color: #64748b;
+}
+
+/* ADAPTACIÓN A PANTALLAS PEQUEÑAS (MÓVILES) */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
 }
