@@ -16,5 +16,9 @@ function calcular() {
     let interes = calcularInteresSimple(monto, tasa, plazoAnios);
     mostrarTexto("lblInteresValor", interes.toFixed(2));
 
+    // Paso 9: Calcular y mostrar total a pagar
+    let totalPagar = calcularTotalPagar(monto, interes);
+    mostrarTexto("lblTotalValor", totalPagar.toFixed(2));
+
     
 }

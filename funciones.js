@@ -13,3 +13,9 @@ function calcularCapacidadPago(montoDisponible) {
 function calcularInteresSimple(monto, tasa, plazoAnios) {
     return plazoAnios * monto * (tasa / 100);
 }
+
+// Paso 8
+function calcularTotalPagar(monto, interes) {
+    return monto + interes + 100; // Incluye USD 100 por impuestos y SOLCA
+}
+
