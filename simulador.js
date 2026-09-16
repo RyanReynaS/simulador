@@ -20,5 +20,9 @@ function calcular() {
     let totalPagar = calcularTotalPagar(monto, interes);
     mostrarTexto("lblTotalValor", totalPagar.toFixed(2));
 
-    
+    // Paso 11: Calcular y mostrar cuota mensual
+    let cuotaMensual = calcularCuotaMensual(totalPagar, plazoAnios);
+    mostrarTexto("lblCuotaValor", cuotaMensual.toFixed(2));
+
+   
 }

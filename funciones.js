@@ -19,3 +19,9 @@ function calcularTotalPagar(monto, interes) {
     return monto + interes + 100; // Incluye USD 100 por impuestos y SOLCA
 }
 
+// Paso 10
+function calcularCuotaMensual(total, plazoAnios) {
+    let plazoMeses = plazoAnios * 12;
+    return total / plazoMeses;
+}
+
