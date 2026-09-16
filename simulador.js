@@ -24,5 +24,11 @@ function calcular() {
     let cuotaMensual = calcularCuotaMensual(totalPagar, plazoAnios);
     mostrarTexto("lblCuotaValor", cuotaMensual.toFixed(2));
 
-   
+    // Paso 14: Evaluar la aprobación del crédito
+    let esAprobado = aprobarCredito(capacidadPago, cuotaMensual);
+    if (esAprobado) {
+        mostrarTexto("lblEstadoCredito", "CREDITO APROBADO");
+    } else {
+        mostrarTexto("lblEstadoCredito", "CREDITO RECHAZADO");
+    }
 }
