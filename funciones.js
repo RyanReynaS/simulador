@@ -4,3 +4,8 @@ function calcularDisponible(ingresos, egresos) {
     return disponible < 0 ? 0 : disponible;
 }
 
+// Paso 4
+function calcularCapacidadPago(montoDisponible) {
+    return montoDisponible * 0.50;
+}
+
