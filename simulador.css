@@ -1,17 +1,28 @@
+/* ==========================================
+   ARCHIVO: simulador.css
+   ESTILOS VISUALES - Simulador de Crédito
+   ==========================================
+   Define cómo se ve el formulario: colores, tamaños, espacios,
+   y los estilos especiales para marcar errores de validación.
+   ========================================== */
+
 /* ESTILOS GLOBALES */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #0f172a; /* Fondo azul marino corporativo */
     margin: 0;
     padding: 20px 10px;
+    /* box-sizing: border-box hace que padding y border se cuenten
+       DENTRO del ancho declarado, no se sumen aparte */
     box-sizing: border-box;
 }
 
 /* CONTENEDOR PRINCIPAL TIPO TARJETA (RESPONSIVO) */
 .container {
+    /* Nunca más ancho que 450px, pero se achica en pantallas chicas (width: 100%) */
     max-width: 450px;
     width: 100%;
-    margin: 20px auto;
+    margin: 20px auto; /* margen automático a los lados = centra horizontalmente */
     padding: 25px;
     background-color: #ffffff;
     border-radius: 12px;
@@ -26,25 +37,25 @@ h1 {
     margin-bottom: 20px;
     color: #0f172a;
     font-size: 22px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: uppercase; /* Convierte el texto a MAYÚSCULAS automáticamente */
+    letter-spacing: 1px; /* Separación extra entre letras */
 }
 
 h2 {
     margin-top: 25px;
     font-size: 15px;
     color: #1e293b;
-    border-bottom: 2px solid #fef3c7;
+    border-bottom: 2px solid #fef3c7; /* Línea decorativa debajo del subtítulo */
     padding-bottom: 5px;
 }
 
-/* ESTRUCTURA DE CADA CAMPO DE ENTRADA */
+/* ESTRUCTURA DE CADA CAMPO DE ENTRADA (label + input + mensaje de error) */
 .input-group {
     margin-top: 12px;
 }
 
 label {
-    display: block;
+    display: block; /* Ocupa toda la línea, así el input queda debajo */
     font-weight: 600;
     color: #475569;
     font-size: 13px;
@@ -58,42 +69,49 @@ input {
     border: 1px solid #cbd5e1;
     box-sizing: border-box;
     font-size: 14px;
+    /* Anima cualquier cambio visual (borde, sombra) de forma suave */
     transition: all 0.2s ease;
 }
 
-/* Enfoque normal del campo de texto */
+/* Estilo normal cuando el usuario hace clic/tab dentro del campo */
 input:focus {
     outline: none;
     border-color: #d97706;
     box-shadow: 0 0 5px rgba(217, 119, 6, 0.3);
 }
 
-/* ESTILO DE ERROR PARA LOS INPUTS (Borde rojo y fondo rosado) */
+/* ==========================================
+   ESTILOS DE VALIDACIÓN (errores)
+   ========================================== */
+/* Esta clase la agrega mostrarError() en simulador.js con classList.add()
+   cuando un campo NO pasa la validación */
 input.input-error {
-    border: 2px solid #dc2626 !important;
-    background-color: #fef2f2 !important;
+    border: 2px solid #dc2626 !important; /* !important fuerza este estilo por encima de otros */
+    background-color: #fef2f2 !important; /* Fondo rosado muy claro */
 }
 
-/* ESTILO DEL TEXTO DE MENSAJE DE ERROR */
+/* Texto del mensaje de error debajo de cada campo (los <small class="mensaje-error">) */
 .mensaje-error {
     color: #dc2626;
     font-size: 12px;
     font-weight: bold;
     margin-top: 4px;
     display: block;
-    min-height: 15px; /* Reserva espacio para evitar saltos en la interfaz */
+    min-height: 15px; /* Reserva espacio para evitar que la página "salte" cuando aparece el error */
 }
 
-/* FILAS DE RESULTADOS */
+/* FILAS DE RESULTADOS (Disponible, Capacidad, Interés, Total, Cuota, Estado) */
 p {
     margin-top: 10px;
     font-size: 14px;
     color: #334155;
+    /* flexbox pone la etiqueta a la izquierda y el valor a la derecha */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* El <span> que contiene cada VALOR calculado (ej: $400.00) */
 span {
     font-weight: bold;
     color: #0f172a;
@@ -102,15 +120,18 @@ span {
     border-radius: 4px;
 }
 
-/* BOTONES */
+/* ==========================================
+   BOTONES
+   ========================================== */
 .buttons {
     margin-top: 25px;
+    /* flexbox para poner los 2 botones uno al lado del otro, con espacio entre ellos */
     display: flex;
     gap: 10px;
 }
 
 button {
-    flex: 1;
+    flex: 1; /* Cada botón ocupa el mismo ancho, repartiéndose el espacio disponible */
     padding: 12px;
     border: none;
     border-radius: 6px;
@@ -118,7 +139,7 @@ button {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    border-bottom: 3px solid #d97706;
+    border-bottom: 3px solid #d97706; /* Simula un botón "con relieve" */
     transition: background-color 0.2s;
 }
 
@@ -126,6 +147,7 @@ button:hover {
     background-color: #1e293b;
 }
 
+/* El botón "Reiniciar" tiene su propio color (gris), distinto de "Calcular" */
 #btnReiniciar {
     background-color: #94a3b8;
     border-bottom: 3px solid #64748b;
@@ -135,7 +157,9 @@ button:hover {
     background-color: #64748b;
 }
 
-/* ADAPTACIÓN A PANTALLAS PEQUEÑAS (MÓVILES) */
+/* ==========================================
+   RESPONSIVE: adaptación a pantallas pequeñas (móviles)
+   ========================================== */
 @media (max-width: 480px) {
     .container {
         padding: 15px;
@@ -143,6 +167,8 @@ button:hover {
     }
 
     .buttons {
+        /* En pantallas chicas, los botones se apilan uno debajo del otro
+           en vez de estar lado a lado */
         flex-direction: column;
     }
 

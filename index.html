@@ -1,3 +1,13 @@
+<!-- ==========================================
+     ARCHIVO: index.html (simulador)
+     TALLER: Simulador de Crédito
+     ==========================================
+     Estructura del formulario: 5 campos de entrada (ingresos, egresos,
+     monto, plazo, tasa), un botón que calcula y uno que reinicia, y
+     varios <span> donde se pintan los resultados. Toda la lógica de
+     cálculo vive en funciones.js, y el flujo completo en simulador.js.
+     ========================================== -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +17,11 @@
     <title>Simulador de Crédito</title>
         <!-- Enlace a los estilos CSS -->
     <link rel="stylesheet" href="simulador.css">
-        <!-- Importación de los archivos JavaScript -->
+        <!-- Importación de los archivos JavaScript.
+             ORDEN IMPORTANTE: funciones.js y utilitarios.js van PRIMERO
+             porque simulador.js usa las funciones que ellos definen
+             (calcularDisponible, mostrarTexto, etc.). Si simulador.js
+             fuera primero, el navegador daría error "is not defined". -->
     <script src="funciones.js"></script>
     <script src="utilitarios.js"></script>
     <script src="simulador.js"></script>
@@ -20,11 +34,14 @@
 
         <h2>Datos financieros</h2>
 
-        <!-- Campo: Ingresos -->
+        <!-- Campo: Ingresos
+             type="text" (no "number") porque la validación de formato
+             la hace a mano el propio simulador.js, con isNaN() -->
         <div class="input-group">
             <label for="txtIngresos">Ingresos ($):</label>
             <input type="text" id="txtIngresos" placeholder="Ej: 1200">
-            <!-- Etiqueta pequeña para mostrar el error específico de este campo -->
+            <!-- Etiqueta pequeña para mostrar el error específico de este campo
+                 (queda vacía hasta que simulador.js le escriba un mensaje) -->
             <small class="mensaje-error" id="errIngresos"></small>
         </div>
 
@@ -36,7 +53,7 @@
             <small class="mensaje-error" id="errEgresos"></small>
         </div>
 
-        <!-- Resultados intermedios -->
+        <!-- Resultados intermedios: se llenan con mostrarTexto() desde simulador.js -->
         <p>Disponible: <span id="lblDisponibleValor">$0.00</span></p>
         <p>Capacidad de pago mensual: <span id="lblCapacidadValor">$0.00</span></p>
 
@@ -76,7 +93,7 @@
         <div class="buttons">
             <!-- Al hacer clic ejecuta la función calcular() que valida y procesa -->
             <button type="button" id="btnCalcularCredito" onclick="calcular()">Calcular Crédito</button>
-            <!-- Al hacer clic ejecuta la función reiniciarFormulario() -->
+            <!-- Al hacer clic ejecuta la función reiniciarFormulario() que limpia todo -->
             <button type="button" id="btnReiniciar" onclick="reiniciarFormulario()">Reiniciar</button>
         </div>
     </div>
